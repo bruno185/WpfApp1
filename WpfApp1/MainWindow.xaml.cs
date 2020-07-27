@@ -40,7 +40,6 @@ namespace WpfApp1
             // traitement
             alea = aleatoire.Next(1, 100);
             for (i=1; i<=alea; i++) {
-                    s = "";
                     s = i.ToString() + " - " + machaine;
                     lb.Items.Add(s);
                 }
