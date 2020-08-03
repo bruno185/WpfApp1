@@ -21,36 +21,41 @@ namespace WpfApp1
     /// </summary>
     public partial class MainWindow : Window
     {
-         
+        string machaine = "ABCD";
         public MainWindow()
         {
             InitializeComponent();
+            UpdatLabel();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            // init.
-            string machaine = "ABCD";
-            int i;
-            string s;
-            int alea;
-            Random aleatoire = new Random();
-            lb.Items.Clear();
 
-            // traitement
-            alea = aleatoire.Next(1, 100);
-            for (i=1; i<=alea; i++) {
-                    s = i.ToString() + " - " + machaine;
-                    lb.Items.Add(s);
-                }
+            while (lb.Items.Count != 100)
+            { 
+                DoAlea();
+            }
 
-            UpdatLabel();
 
             //int entier = aleatoire.next(); //Génère un entier aléatoire positif
             //int entierUnChiffre = aleatoire.next(10); //Génère un entier compris entre 0 et 9
             //int mois = aleatoire.Next(1, 13); // Génère un entier compris entre 1 et 12
+        }
 
+        private void DoAlea()
+        {
+            // init.
+                    string s;
+                    Random aleatoire = new Random();
+                    lb.Items.Clear();    
+            // traitement
+                int alea = aleatoire.Next(1, 101);
+                for (int i=1; i<=alea; i++) {
+                        s = i.ToString() + " - " + machaine;
+                        lb.Items.Add(s);
+                    }
 
+            UpdatLabel();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
