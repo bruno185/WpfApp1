@@ -6,17 +6,42 @@
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <Grid Margin="0,0,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="19*"/>
+            <RowDefinition Height="25*"/>
+        </Grid.RowDefinitions>
+        
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                 <GradientStop Color="Black"/>
                 <GradientStop Color="White" Offset="1"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <Button Content="Populate ListBox" HorizontalAlignment="Center" Margin="0,356,0,0" VerticalAlignment="Top" Height="29" Width="141" Background="#FFF1E3B1" Click="Button_Click"/>
-        <Label x:Name="lab1" Content="Label000" HorizontalAlignment="Left" Margin="499,356,0,0" VerticalAlignment="Top" Width="199"/>
-        <ListBox x:Name="lb" Margin="10,24,536,24" FontFamily="Yu Gothic UI Light"/>
-        <Button Content="Clear" HorizontalAlignment="Center" Margin="0,315,0,0" VerticalAlignment="Top" Width="140" Click="Button_Click_1"/>
+        
+        <Button Content="Populate ListBox" HorizontalAlignment="Left" Margin="446,141,0,0" VerticalAlignment="Top" Height="31" Width="140" Background="#FFF1E3B1" Click="Button_Click" Grid.Row="1">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+        </Button>
+        
+        <Label x:Name="lab1" Content="Label000" HorizontalAlignment="Left" Margin="623,143,0,0" VerticalAlignment="Top" Width="129" Height="28" Grid.Row="1"/>
+        
+        <ListBox x:Name="lb" Margin="22,18,524,65" FontFamily="Yu Gothic UI Light" Background="#FFB1CDBC" Grid.RowSpan="2"/>
+        
+        <Button Content="Clear" HorizontalAlignment="Left" Margin="446,0,0,0" VerticalAlignment="Center" Width="140" Click="Button_Click_1" Height="21" Grid.Row="1">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+        </Button>
+        
+        <Button Content="Draw.." HorizontalAlignment="Left" Margin="292,143,0,0" VerticalAlignment="Top" Width="149" RenderTransformOrigin="0.5,0.5" Height="29" Click="DrawClick" Grid.Row="1"/>
+        
+        <Canvas ClipToBounds="True" Name="Outer" Margin="292,37,23,166" Grid.RowSpan="2">
+            <Canvas x:Name="canvas1" 
+         Height="{Binding ActualHeight, ElementName=Outer, Mode=OneWay}"
+         Width="{Binding ActualWidth, ElementName=Outer, Mode=OneWay}" Background="#FFB9B9B9" />
+        </Canvas>
 
     </Grid>
 </Window>
